@@ -12,6 +12,7 @@ let
     "panicbit.cargo"
     "uniquevision.vscode-plpgsql-lsp"
     "ckolkman.vscode-postgres"
+    "ms-python.python"
     # Add more extensions here
   ];
 in
