@@ -65,6 +65,9 @@
       cleanup = "zap";
       upgrade = true;
     };
+    brews = [
+      "sevenzip"
+    ];
     casks = [
       "1password"
       "chatgpt"
@@ -79,9 +82,7 @@
       "spotify"
       "superhuman"
       "tableplus"
-    ];
-    brews = [
-      "sevenzip"
+      "whatsapp"
     ];
   };
 
