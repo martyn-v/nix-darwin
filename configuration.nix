@@ -79,7 +79,6 @@
       "microsoft-teams"
       "microsoft-word"
       "obsidian"
-      "rstudio"
       "spotify"
       "superhuman"
       "tableplus"
