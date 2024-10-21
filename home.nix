@@ -130,7 +130,7 @@ in
   '';
 
   home.sessionVariables = {
-    R_HOME = "${pkgs.stdenv.shell} -c 'type -P R'"; # Dynamically assign the output of 'type -P R'
+    R_HOME = "zsh -c 'type R'"; # Dynamically assign the output of 'type -P R'
   };
 
 }
