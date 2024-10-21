@@ -92,6 +92,8 @@
   fonts.packages = [
     pkgs.ibm-plex
     pkgs.nerdfonts
+    pkgs.open-sans
+    pkgs.montserrat
   ];
 
 }
