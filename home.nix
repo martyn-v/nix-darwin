@@ -129,4 +129,8 @@ in
     done
   '';
 
+  home.sessionVariables = {
+    R_HOME = "${pkgs.stdenv.shell} -c 'type -P R'"; # Dynamically assign the output of 'type -P R'
+  };
+
 }
