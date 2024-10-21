@@ -71,6 +71,7 @@
     ];
     casks = [
       "1password"
+      "affinity-photo"
       "chatgpt"
       "font-symbols-only-nerd-font"
       "google-chrome"
