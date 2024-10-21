@@ -17,41 +17,49 @@ let
   ];
 in
 {
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "martyn";
 
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    eza
-    fd
-    ffmpegthumbnailer
-    file
-    fzf
-    gh
-    htop
-    imagemagick
-    jq
-    poppler
-    ripgrep
-    zoxide
-  ];
-
-  home.shellAliases = {
-    ls = "eza -1lh --no-quotes -I .DS_Store";
-    ll = "eza -1lah --no-quotes -I .DS_Store";
-    rstudio = "open -a RStudio";
+  home = {
+    stateVersion = "24.05";
+    # Home Manager needs a bit of information about you and the
+    # paths it should manage.
+    username = "martyn";
+    # Packages that should be installed to the user profile.
+    packages = with pkgs; [
+      eza
+      fd
+      ffmpegthumbnailer
+      file
+      fzf
+      gh
+      htop
+      imagemagick
+      jq
+      poppler
+      ripgrep
+      zoxide
+    ];
+    shellAliases = {
+      ls = "eza -1lh --no-quotes -I .DS_Store";
+      ll = "eza -1lah --no-quotes -I .DS_Store";
+      rstudio = "open -a RStudio";
+    };
+    file = {
+      ".config/kitty/kitty.conf" = {
+        source = ./configs/kitty.conf;
+      };
+      ".config/yazi/yazi.toml" = {
+        source = ./configs/yazi.toml;
+      };
+      ".config/starship.toml" = {
+        source = ./configs/starship.toml;
+      };
+    };
+    activation.postInstall = ''
+      for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
+        ${pkgs.vscode}/bin/code --install-extension $ext || true
+      done
+    '';
   };
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "24.05";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -110,27 +118,5 @@ in
     enableZshIntegration = true;
   };
 
-  home.file = {
-    ".config/kitty/kitty.conf" = {
-      source = ./configs/kitty.conf;
-    };
-    ".config/yazi/yazi.toml" = {
-      source = ./configs/yazi.toml;
-    };
-    ".config/starship.toml" = {
-      source = ./configs/starship.toml;
-    };
-  };
-
-
-  home.activation.postInstall = ''
-    for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
-      ${pkgs.vscode}/bin/code --install-extension $ext || true
-    done
-  '';
-
-  home.sessionVariables = {
-    R_HOME = "zsh -c 'type R'"; # Dynamically assign the output of 'type -P R'
-  };
 
 }

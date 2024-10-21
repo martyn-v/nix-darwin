@@ -12,7 +12,6 @@
         # Development tools
         devenv
         nixpkgs-fmt
-        R
         # Infrastructure tools
         # terraform
       ];
@@ -67,6 +66,7 @@
       upgrade = true;
     };
     brews = [
+      "r"
       "sevenzip"
     ];
     casks = [
@@ -80,6 +80,7 @@
       "microsoft-teams"
       "microsoft-word"
       "obsidian"
+
       "rstudio"
       "spotify"
       "superhuman"
