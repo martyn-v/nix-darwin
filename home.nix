@@ -33,6 +33,7 @@ in
     imagemagick
     jq
     poppler
+    R
     ripgrep
     zoxide
   ];
@@ -40,6 +41,7 @@ in
   home.shellAliases = {
     ls = "eza -1lh --no-quotes -I .DS_Store";
     ll = "eza -1lah --no-quotes -I .DS_Store";
+    rstudio = "open -a RStudio";
   };
 
   # This value determines the Home Manager release that your
