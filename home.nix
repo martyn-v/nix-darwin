@@ -33,7 +33,6 @@ in
     imagemagick
     jq
     poppler
-    R
     ripgrep
     zoxide
   ];

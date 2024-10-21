@@ -12,6 +12,7 @@
         # Development tools
         devenv
         nixpkgs-fmt
+        R
         # Infrastructure tools
         # terraform
       ];
