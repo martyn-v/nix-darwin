@@ -116,6 +116,9 @@ in
     ".config/yazi/yazi.toml" = {
       source = ./configs/yazi.toml;
     };
+    ".config/starship.toml" = {
+      source = ./configs/starship.toml;
+    };
   };
 
 
