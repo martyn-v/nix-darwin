@@ -26,6 +26,7 @@ in
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       awscli2
+      aws-sam-cli
       eza
       fd
       ffmpegthumbnailer
