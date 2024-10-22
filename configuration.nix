@@ -87,6 +87,7 @@
       "superhuman"
       "tableplus"
       "whatsapp"
+      "zoom"
     ];
   };
 
