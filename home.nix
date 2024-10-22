@@ -25,6 +25,7 @@ in
     username = "martyn";
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
+      awscli
       eza
       fd
       ffmpegthumbnailer
