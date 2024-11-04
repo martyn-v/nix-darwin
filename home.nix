@@ -13,6 +13,8 @@ let
     "uniquevision.vscode-plpgsql-lsp"
     "ckolkman.vscode-postgres"
     "ms-python.python"
+    "hashicorp.terraform"
+    "eamodio.gitlens"
     # Add more extensions here
   ];
 in
@@ -55,6 +57,9 @@ in
       ".config/starship.toml" = {
         source = ./configs/starship.toml;
       };
+      ".config/aerospace/aerospace.toml" = {
+        source = ./configs/aerospace.toml;
+      };
     };
     activation.postInstall = ''
       for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
@@ -92,6 +97,7 @@ in
       "workbench.preferredLightColorTheme" = "Catppuccin Latte";
       "workbench.preferredDarkColorTheme" = "Catppuccin Macchiato";
       "workbench.iconTheme" = "catppuccin-latte";
+      "gitlens.ai.experimental.model" = "openai:gpt-4";
     };
   };
 

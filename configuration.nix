@@ -65,16 +65,22 @@
       cleanup = "zap";
       upgrade = true;
     };
+    taps = [
+      "nikitabobko/tap"
+    ];
     brews = [
       "r"
       "sevenzip"
     ];
     casks = [
       "1password"
+      "aerospace"
       "affinity-photo"
       "bruno"
       "chatgpt"
       "font-symbols-only-nerd-font"
+      "gitkraken"
+      "gitkraken-cli"
       "google-chrome"
       "kitty"
       "microsoft-excel"
@@ -82,7 +88,6 @@
       "microsoft-teams"
       "microsoft-word"
       "obsidian"
-
       "rstudio"
       "spotify"
       "superhuman"
