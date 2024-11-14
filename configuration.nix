@@ -12,8 +12,12 @@
         # Development tools
         devenv
         nixpkgs-fmt
+
         # Infrastructure tools
         # terraform
+
+        # R tools
+
       ];
   };
 
@@ -51,6 +55,7 @@
     tilesize = 56;
   };
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
+  system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -69,18 +74,18 @@
       "nikitabobko/tap"
     ];
     brews = [
-      "r"
       "sevenzip"
     ];
     casks = [
       "1password"
       "aerospace"
+      "affinity-designer"
       "affinity-photo"
       "bruno"
       "chatgpt"
       "font-symbols-only-nerd-font"
-      "gitkraken"
       "gitkraken-cli"
+      "gitkraken"
       "google-chrome"
       "kitty"
       "microsoft-excel"
@@ -88,11 +93,13 @@
       "microsoft-teams"
       "microsoft-word"
       "obsidian"
-      "rstudio"
+      "onedrive"
+      "positron"
       "spotify"
       "superhuman"
       "tableplus"
       "whatsapp"
+      "zed"
       "zoom"
     ];
   };

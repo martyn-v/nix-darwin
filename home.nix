@@ -9,12 +9,16 @@ let
     "catppuccin.catppuccin-vsc-icons"
     "rust-lang.rust-analyzer"
     "github.copilot"
+    "github.copilot-chat"
     "panicbit.cargo"
     "uniquevision.vscode-plpgsql-lsp"
     "ckolkman.vscode-postgres"
     "ms-python.python"
     "hashicorp.terraform"
     "eamodio.gitlens"
+    "vue.volar"
+    "ibm.output-colorizer"
+    "fill-labs.dependi"
     # Add more extensions here
   ];
 in
@@ -46,6 +50,7 @@ in
       ls = "eza -1lh --no-quotes -I .DS_Store";
       ll = "eza -1lah --no-quotes -I .DS_Store";
       rstudio = "open -a RStudio";
+      positron = "open -a Positron";
     };
     file = {
       ".config/kitty/kitty.conf" = {
@@ -59,6 +64,9 @@ in
       };
       ".config/aerospace/aerospace.toml" = {
         source = ./configs/aerospace.toml;
+      };
+      ".config/zed/settings.json" = {
+        source = ./configs/zed/settings.json;
       };
     };
     activation.postInstall = ''
@@ -87,6 +95,7 @@ in
       "editor.fontFamily" = "'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace";
       "editor.formatOnSave" = true;
       "editor.detectIndentation" = false;
+      "editor.inlayHints.enabled" = "offUnlessPressed";
       "editor.tabSize" = 4;
       "[nix]"."editor.tabSize" = 4;
       "terminal.external.osxExec" = "kitty.app";
@@ -98,6 +107,8 @@ in
       "workbench.preferredDarkColorTheme" = "Catppuccin Macchiato";
       "workbench.iconTheme" = "catppuccin-latte";
       "gitlens.ai.experimental.model" = "openai:gpt-4";
+      "rust-analyzer.check.command" = "clippy";
+      "[vue]"."editor.defaultFormatter" = "Vue.volar";
     };
   };
 
@@ -125,6 +136,4 @@ in
     enable = true;
     enableZshIntegration = true;
   };
-
-
 }
