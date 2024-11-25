@@ -19,6 +19,7 @@ let
     "vue.volar"
     "ibm.output-colorizer"
     "fill-labs.dependi"
+    "rangav.vscode-thunder-client"
     # Add more extensions here
   ];
 in
@@ -111,6 +112,7 @@ in
       "[vue]"."editor.defaultFormatter" = "Vue.volar";
     };
   };
+
 
   programs.zsh = {
     enable = true;
