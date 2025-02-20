@@ -4,6 +4,7 @@
   environment = {
     variables = {
       "EDITOR" = "nvim";
+      "VSCODE_PORTABLE" = "~/.vscode";
     };
     systemPackages =
       with pkgs; [
@@ -15,15 +16,23 @@
 
         # Infrastructure tools
         # terraform
-
+        minikube
         # R tools
 
       ];
   };
 
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
+
+  services = {
+    # Auto upgrade nix package and the daemon service.
+    nix-daemon = {
+      enable = true;
+    };
+    sketchybar = {
+      enable = false;
+    };
+  };
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
@@ -44,10 +53,10 @@
   system.defaults.dock = {
     show-recents = false;
     persistent-apps = [
-      "/Applications/Superhuman.app"
       "/Applications/Obsidian.app"
       "/Applications/Microsoft Teams.app"
       "/Applications/Google Chrome.app"
+      "/Applications/kitty.app"
     ];
     persistent-others = [ ];
     minimize-to-application = true;
@@ -56,6 +65,7 @@
   };
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
+  #   system.defaults.NSGlobalDomain._HIHideMenuBar = true;
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -72,15 +82,19 @@
     };
     taps = [
       "nikitabobko/tap"
+      "FelixKratz/formulae"
     ];
     brews = [
       "sevenzip"
+      "sketchybar"
+      "borders"
     ];
     casks = [
       "1password"
       "aerospace"
       "affinity-designer"
       "affinity-photo"
+      "blender"
       "bruno"
       "chatgpt"
       "font-symbols-only-nerd-font"
@@ -92,16 +106,23 @@
       "microsoft-powerpoint"
       "microsoft-teams"
       "microsoft-word"
+      "nordvpn"
       "obsidian"
+      "offset-explorer"
       "onedrive"
+      "openlens"
+      "opera"
       "positron"
       "spotify"
-      "superhuman"
       "tableplus"
       "whatsapp"
       "zed"
       "zoom"
     ];
+    masApps = {
+      "Flighty" = 1358823008;
+      "Perplexity" = 6714467650;
+    };
   };
 
   fonts.packages = [
@@ -110,5 +131,7 @@
     pkgs.open-sans
     pkgs.montserrat
   ];
+
+
 
 }

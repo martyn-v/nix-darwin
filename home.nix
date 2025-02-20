@@ -19,12 +19,18 @@ let
     "vue.volar"
     "ibm.output-colorizer"
     "fill-labs.dependi"
-    "rangav.vscode-thunder-client"
+    "vadimcn.vscode-lldb"
+    "ms-vscode.test-adapter-converter"
+    "inferrinizzard.prettier-sql-vscode"
+    "usernamehw.errorlens"
+
     # Add more extensions here
   ];
 in
 {
-
+  imports = [
+    ./mutable-files.nix
+  ];
   home = {
     stateVersion = "24.05";
     # Home Manager needs a bit of information about you and the
@@ -40,9 +46,11 @@ in
       file
       fzf
       gh
+      kubernetes-helm
       htop
       imagemagick
       jq
+      kubectl
       poppler
       ripgrep
       zoxide
@@ -69,6 +77,21 @@ in
       ".config/zed/settings.json" = {
         source = ./configs/zed/settings.json;
       };
+      ".config/sketchybar/sketchybarrc" = {
+        source = ./configs/sketchybar/sketchybarrc;
+        executable = true;
+      };
+      ".config/sketchybar/plugins/" = {
+        source = ./configs/sketchybar/plugins;
+        target = ".config/sketchybar/plugins/";
+        recursive = true;
+        executable = true;
+      };
+      "Library/Application Support/Code/User/settings.json" = {
+        source = ./configs/vscode-settings.json;
+        force = true;
+        mutable = true;
+      };
     };
     activation.postInstall = ''
       for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
@@ -89,28 +112,31 @@ in
   programs.vscode = {
     enable = true;
     enableUpdateCheck = true;
-    enableExtensionUpdateCheck = false;
     mutableExtensionsDir = true;
-    userSettings = {
-      "editor.fontSize" = 14;
-      "editor.fontFamily" = "'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace";
-      "editor.formatOnSave" = true;
-      "editor.detectIndentation" = false;
-      "editor.inlayHints.enabled" = "offUnlessPressed";
-      "editor.tabSize" = 4;
-      "[nix]"."editor.tabSize" = 4;
-      "terminal.external.osxExec" = "kitty.app";
-      "terminal.integrated.defaultProfile.osx" = "zsh";
-      "terminal.integrated.fontSize" = 14;
-      "window.autoDetectColorScheme" = true;
-      "workbench.colorTheme" = "Catppuccin Latte";
-      "workbench.preferredLightColorTheme" = "Catppuccin Latte";
-      "workbench.preferredDarkColorTheme" = "Catppuccin Macchiato";
-      "workbench.iconTheme" = "catppuccin-latte";
-      "gitlens.ai.experimental.model" = "openai:gpt-4";
-      "rust-analyzer.check.command" = "clippy";
-      "[vue]"."editor.defaultFormatter" = "Vue.volar";
-    };
+    # userSettings = {carg
+    #   "editor.fontSize" = 16;
+    #   "editor.fontFamily" = "'Zed Plex Mono', 'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace";
+    #   "editor.formatOnSave" = true;
+    #   "editor.detectIndentation" = false;
+    #   "editor.inlayHints.enabled" = "offUnlessPressed";
+    #   "editor.tabSize" = 4;
+    #   "[nix]"."editor.tabSize" = 4;
+    #   "terminal.external.osxExec" = "kitty.app";
+    #   "terminal.integrated.defaultProfile.osx" = "zsh";
+    #   "terminal.integrated.fontSize" = 14;
+    #   "window.autoDetectColorScheme" = true;
+    #   "workbench.colorTheme" = "Catppuccin Latte";
+    #   "workbench.preferredLightColorTheme" = "Catppuccin Latte";
+    #   "workbench.preferredDarkColorTheme" = "Catppuccin Frappé";
+    #   "workbench.iconTheme" = "catppuccin-latte";
+    #   "gitlens.ai.experimental.model" = "openai:gpt-4";
+    #   "rust-analyzer.check.command" = "clippy";
+    #   "rust-analyzer.testExplorer" = true;
+    #   "rust-analyzer.interpret.tests" = true;
+    #   "[vue]"."editor.defaultFormatter" = "Vue.volar";
+    #   "editor.minimap.enabled" = false;
+
+    # };
   };
 
 
@@ -137,5 +163,9 @@ in
     # See: https://yazi-rs.github.io/docs/installation#nix
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.k9s = {
+    enable = true;
   };
 }
