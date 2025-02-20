@@ -94,6 +94,7 @@
       "aerospace"
       "affinity-designer"
       "affinity-photo"
+      "arc"
       "blender"
       "bruno"
       "chatgpt"
