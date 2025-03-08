@@ -115,6 +115,7 @@
       "opera"
       "positron"
       "spotify"
+      "steam"
       "tableplus"
       "whatsapp"
       "zed"
