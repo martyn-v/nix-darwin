@@ -7,24 +7,12 @@
 after-login-command = []
 
 after-startup-command = [
-    'exec-and-forget sketchybar',
     'exec-and-forget borders active_color=0xff27c200 inactive_color=0xff125402 width=5.0',
 ]
 
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-## SKETCHYBAR
-# Run Sketchybar together with AeroSpace
-# sketchbar has a built-in detection of already running process,
-# so it won't be run twice on AeroSpace restart
-
-# Notify Sketchybar about workspace change:ew
-exec-on-workspace-change = [
-    '/bin/bash',
-    '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -75,7 +63,7 @@ inner.horizontal = [{ monitor."LG HDR DQHD" = 10 }, 0]
 inner.vertical = [{ monitor."LG HDR DQHD" = 10 }, 0]
 outer.left = [{ monitor."LG HDR DQHD" = 800 }, 0]
 outer.bottom = [{ monitor."LG HDR DQHD" = 10 }, 0]
-outer.top = [{ monitor."LG HDR DQHD" = 38 }, 0]
+outer.top = [{ monitor."LG HDR DQHD" = 10 }, 0]
 outer.right = [{ monitor."LG HDR DQHD" = 800 }, 0]
 
 # 'main' binding mode declaration

@@ -23,14 +23,40 @@ let
     "ms-vscode.test-adapter-converter"
     "inferrinizzard.prettier-sql-vscode"
     "usernamehw.errorlens"
+    "hashicorp.hcl"
+    "fredwangwang.vscode-hcl-format"
+    "adrianwilczynski.toggle-hidden"
+    "github.vscode-pull-request-github"
+    "ashinzekene.nestjs"
 
     # Add more extensions here
   ];
-in
-{
-  imports = [
-    ./mutable-files.nix
+  cursorExtensions = [
+    "tamasfe.even-better-toml"
+    "jnoortheen.nix-ide"
+    "tamasfe.even-better-toml"
+    "jnoortheen.nix-ide"
+    "catppuccin.catppuccin-vsc"
+    "catppuccin.catppuccin-vsc-icons"
+    "rust-lang.rust-analyzer"
+    "panicbit.cargo"
+    "uniquevision.vscode-plpgsql-lsp"
+    "ckolkman.vscode-postgres"
+    "ms-python.python"
+    "hashicorp.terraform"
+    "eamodio.gitlens"
+    "vue.volar"
+    "ibm.output-colorizer"
+    "fill-labs.dependi"
+    "vadimcn.vscode-lldb"
+    "ms-vscode.test-adapter-converter"
+    "inferrinizzard.prettier-sql-vscode"
+    "usernamehw.errorlens"
+
+    # Add more extensions here
   ];
+in {
+  imports = [ ./mutable-files.nix ];
   home = {
     stateVersion = "24.05";
     # Home Manager needs a bit of information about you and the
@@ -51,6 +77,7 @@ in
       imagemagick
       jq
       kubectl
+      nixfmt
       poppler
       ripgrep
       zoxide
@@ -60,34 +87,23 @@ in
       ll = "eza -1lah --no-quotes -I .DS_Store";
       rstudio = "open -a RStudio";
       positron = "open -a Positron";
+      vc = "code .";
+      dup = "devenv up";
     };
     file = {
-      ".config/kitty/kitty.conf" = {
-        source = ./configs/kitty.conf;
-      };
-      ".config/yazi/yazi.toml" = {
-        source = ./configs/yazi.toml;
-      };
-      ".config/starship.toml" = {
-        source = ./configs/starship.toml;
-      };
+      ".config/kitty/kitty.conf" = { source = ./configs/kitty.conf; };
+      ".config/yazi/yazi.toml" = { source = ./configs/yazi.toml; };
+      ".config/starship.toml" = { source = ./configs/starship.toml; };
       ".config/aerospace/aerospace.toml" = {
         source = ./configs/aerospace.toml;
       };
-      ".config/zed/settings.json" = {
-        source = ./configs/zed/settings.json;
-      };
-      ".config/sketchybar/sketchybarrc" = {
-        source = ./configs/sketchybar/sketchybarrc;
-        executable = true;
-      };
-      ".config/sketchybar/plugins/" = {
-        source = ./configs/sketchybar/plugins;
-        target = ".config/sketchybar/plugins/";
-        recursive = true;
-        executable = true;
-      };
+      ".config/zed/settings.json" = { source = ./configs/zed/settings.json; };
       "Library/Application Support/Code/User/settings.json" = {
+        source = ./configs/vscode-settings.json;
+        force = true;
+        mutable = true;
+      };
+      "Library/Application Support/Cursor/User/settings.json" = {
         source = ./configs/vscode-settings.json;
         force = true;
         mutable = true;
@@ -96,6 +112,10 @@ in
     activation.postInstall = ''
       for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
         ${pkgs.vscode}/bin/code --install-extension $ext || true
+      done
+
+      for ext in ${lib.concatStringsSep " " cursorExtensions}; do
+        /opt/homebrew/bin/cursor --install-extension $ext || true
       done
     '';
   };
@@ -111,7 +131,7 @@ in
 
   programs.vscode = {
     enable = true;
-    enableUpdateCheck = true;
+    # enableUpdateCheck = true;
     mutableExtensionsDir = true;
     # userSettings = {carg
     #   "editor.fontSize" = 16;
@@ -139,7 +159,6 @@ in
     # };
   };
 
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -147,7 +166,6 @@ in
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
   };
-
 
   programs.starship = {
     enable = true;
@@ -165,7 +183,5 @@ in
     enableZshIntegration = true;
   };
 
-  programs.k9s = {
-    enable = true;
-  };
+  programs.k9s = { enable = true; };
 }

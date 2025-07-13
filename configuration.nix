@@ -6,32 +6,26 @@
       "EDITOR" = "nvim";
       "VSCODE_PORTABLE" = "~/.vscode";
     };
-    systemPackages =
-      with pkgs; [
-        neovim
+    systemPackages = with pkgs; [
+      neovim
+      tree
 
-        # Development tools
-        devenv
-        nixpkgs-fmt
+      # Development tools
+      devenv
+      nixpkgs-fmt
+      nodejs
 
-        # Infrastructure tools
-        # terraform
-        minikube
-        # R tools
+      # Infrastructure tools
+      # terraform
+      minikube
+      # R tools
 
-      ];
+    ];
   };
 
-
-
   services = {
-    # Auto upgrade nix package and the daemon service.
-    nix-daemon = {
-      enable = true;
-    };
-    sketchybar = {
-      enable = false;
-    };
+    # Auto upgrade nix package and the daemon service
+    sketchybar = { enable = false; };
   };
   # nix.package = pkgs.nix;
 
@@ -54,8 +48,9 @@
     show-recents = false;
     persistent-apps = [
       "/Applications/Obsidian.app"
-      "/Applications/Microsoft Teams.app"
-      "/Applications/Google Chrome.app"
+      "/Applications/Arc.app"
+      "/Applications/Slack.app"
+      "/Applications/Sunsama.app"
       "/Applications/kitty.app"
     ];
     persistent-others = [ ];
@@ -65,13 +60,11 @@
   };
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
-  #   system.defaults.NSGlobalDomain._HIHideMenuBar = true;
+  system.primaryUser = "martyn";
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
   # Homebrew
   homebrew = {
@@ -80,60 +73,44 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [
-      "nikitabobko/tap"
-      "FelixKratz/formulae"
-    ];
-    brews = [
-      "sevenzip"
-      "sketchybar"
-      "borders"
-    ];
+    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
+    brews = [ "sevenzip" "borders" "mcp" ];
     casks = [
       "1password"
       "aerospace"
-      "affinity-designer"
-      "affinity-photo"
       "arc"
-      "blender"
       "bruno"
       "chatgpt"
+      "claude"
+      "figma"
       "font-symbols-only-nerd-font"
       "gitkraken-cli"
       "gitkraken"
       "google-chrome"
+      "inkscape"
       "kitty"
-      "microsoft-excel"
-      "microsoft-powerpoint"
       "microsoft-teams"
-      "microsoft-word"
       "nordvpn"
+      "notion"
       "obsidian"
-      "offset-explorer"
-      "onedrive"
+      "ollama"
       "openlens"
-      "opera"
-      "positron"
+      "slack"
       "spotify"
       "steam"
+      "sunsama"
       "tableplus"
       "whatsapp"
-      "zed"
       "zoom"
     ];
     masApps = {
+      "Canary" = 1236045954;
       "Flighty" = 1358823008;
       "Perplexity" = 6714467650;
     };
   };
 
-  fonts.packages = [
-    pkgs.ibm-plex
-    pkgs.nerdfonts
-    pkgs.open-sans
-    pkgs.montserrat
-  ];
-
-
+  fonts.packages =
+    [ pkgs.ibm-plex pkgs.nerd-fonts.hack pkgs.open-sans pkgs.montserrat ];
 
 }
