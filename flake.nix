@@ -13,7 +13,7 @@
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#mbpm1-martynv
-      darwinConfigurations."mbpm1-martynv" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."macst-martynv" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit self; };
         modules = [
@@ -30,6 +30,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.martyn = import ./home.nix;
+	    home-manager.backupFileExtension = "backup";
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -38,6 +39,6 @@
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."mbpm1-martynv".pkgs;
+      darwinPackages = self.darwinConfigurations."macst-martynv".pkgs;
     };
 }

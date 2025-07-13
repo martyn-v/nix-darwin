@@ -31,30 +31,6 @@ let
 
     # Add more extensions here
   ];
-  cursorExtensions = [
-    "tamasfe.even-better-toml"
-    "jnoortheen.nix-ide"
-    "tamasfe.even-better-toml"
-    "jnoortheen.nix-ide"
-    "catppuccin.catppuccin-vsc"
-    "catppuccin.catppuccin-vsc-icons"
-    "rust-lang.rust-analyzer"
-    "panicbit.cargo"
-    "uniquevision.vscode-plpgsql-lsp"
-    "ckolkman.vscode-postgres"
-    "ms-python.python"
-    "hashicorp.terraform"
-    "eamodio.gitlens"
-    "vue.volar"
-    "ibm.output-colorizer"
-    "fill-labs.dependi"
-    "vadimcn.vscode-lldb"
-    "ms-vscode.test-adapter-converter"
-    "inferrinizzard.prettier-sql-vscode"
-    "usernamehw.errorlens"
-
-    # Add more extensions here
-  ];
 in {
   imports = [ ./mutable-files.nix ];
   home = {
@@ -103,19 +79,10 @@ in {
         force = true;
         mutable = true;
       };
-      "Library/Application Support/Cursor/User/settings.json" = {
-        source = ./configs/vscode-settings.json;
-        force = true;
-        mutable = true;
-      };
     };
     activation.postInstall = ''
       for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
         ${pkgs.vscode}/bin/code --install-extension $ext || true
-      done
-
-      for ext in ${lib.concatStringsSep " " cursorExtensions}; do
-        /opt/homebrew/bin/cursor --install-extension $ext || true
       done
     '';
   };
