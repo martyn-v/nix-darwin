@@ -47,11 +47,10 @@
   system.defaults.dock = {
     show-recents = false;
     persistent-apps = [
-      "/Applications/Obsidian.app"
       "/Applications/Arc.app"
+      "/Applications/kitty.app"
       "/Applications/Slack.app"
       "/Applications/Sunsama.app"
-      "/Applications/kitty.app"
     ];
     persistent-others = [ ];
     minimize-to-application = true;
@@ -61,6 +60,8 @@
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
   system.primaryUser = "martyn";
+  networking.hostName = "macst-martynv";
+  networking.localHostName = "macst-martynv";
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -74,14 +75,14 @@
       upgrade = true;
     };
     taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
-    brews = [ "sevenzip" "borders" "mcp" ];
+    brews = [ "sevenzip" "mcp" ];
     casks = [
       "1password"
       "aerospace"
       "arc"
+      "beekeeper-studio"
       "bruno"
       "chatgpt"
-      "claude"
       "figma"
       "font-symbols-only-nerd-font"
       "gitkraken-cli"
@@ -89,15 +90,12 @@
       "google-chrome"
       "inkscape"
       "kitty"
+      "logi-options+"
       "microsoft-teams"
       "nordvpn"
       "notion"
-      "obsidian"
-      "ollama"
-      "openlens"
       "slack"
       "spotify"
-      "steam"
       "sunsama"
       "tableplus"
       "whatsapp"
