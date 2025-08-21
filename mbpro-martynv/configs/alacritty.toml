@@ -1,0 +1,4 @@
+# Reference: https://alacritty.org/config-alacritty.html
+[font]
+normal = { family = "IBM Plex Mono", style = "Regular" }
+size = 16
