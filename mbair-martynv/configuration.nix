@@ -55,7 +55,6 @@
   networking.hostName = "mbair-martynv";
   networking.localHostName = "mbair-martynv";
 
-  power.restartAfterPowerFailure = true;
   power.sleep.computer = "never";
   power.sleep.display = 30; # minutes
 
@@ -71,9 +70,8 @@
       upgrade = true;
     };
     taps = [
-
       "FelixKratz/formulae"
-
+      "nikitabobko/tap"
     ];
     brews = [ "borders" ];
     casks = [
@@ -86,6 +84,7 @@
       "kitty"
       "nordvpn"
       "spotify"
+      "visual-studio-code"
       "whatsapp"
       "zoom"
     ];

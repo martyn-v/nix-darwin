@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 let
   vscodeExtensions = [
-
+    "catppuccin.catppuccin-vsc"
+    "catppuccin.catppuccin-vsc-icons"
   ];
 in {
   imports = [ ./../mutable-files.nix ];
@@ -16,6 +17,7 @@ in {
       fd
       ffmpegthumbnailer
       file
+      gh
       htop
       jq
       nixfmt
