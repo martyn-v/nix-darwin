@@ -46,7 +46,6 @@ in {
       fd
       ffmpegthumbnailer
       file
-      fzf
       gh
       kubernetes-helm
       htop
@@ -56,7 +55,6 @@ in {
       nixfmt
       poppler
       ripgrep
-      zoxide
     ];
     shellAliases = {
       ls = "eza -1lh --no-quotes -I .DS_Store";
@@ -128,6 +126,7 @@ in {
 
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
     autosuggestion.enable = true;
     profileExtra = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -151,4 +150,14 @@ in {
   };
 
   programs.k9s = { enable = true; };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

@@ -57,11 +57,26 @@
     mineffect = "suck";
     tilesize = 56;
   };
+  system.primaryUser = "martyn";
+
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
-  system.primaryUser = "martyn";
+  system.defaults.smb.NetBIOSName = "macst-martynv";
+
+  system.defaults.screensaver.askForPassword = true;
+  system.defaults.screensaver.askForPasswordDelay = 300; # 5 minutes
+  system.defaults.CustomUserPreferences = {
+    "com.apple.screensaver" = {
+      idleTime = 1200; # 0 disables the screensaver
+    };
+  };
+
   networking.hostName = "macst-martynv";
   networking.localHostName = "macst-martynv";
+
+  power.restartAfterPowerFailure = true;
+  power.sleep.computer = "never";
+  power.sleep.display = 30; # minutes
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -74,8 +89,13 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
-    brews = [ "sevenzip" "mcp" ];
+    taps = [
+      "nikitabobko/tap"
+      "FelixKratz/formulae"
+      "f/mcptools"
+      "withgraphite/tap"
+    ];
+    brews = [ "borders" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
     casks = [
       "1password"
       "aerospace"
