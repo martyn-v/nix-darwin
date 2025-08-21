@@ -1,35 +1,7 @@
 { config, pkgs, lib, ... }:
 let
   vscodeExtensions = [
-    "tamasfe.even-better-toml"
-    "jnoortheen.nix-ide"
-    "tamasfe.even-better-toml"
-    "jnoortheen.nix-ide"
-    "catppuccin.catppuccin-vsc"
-    "catppuccin.catppuccin-vsc-icons"
-    "rust-lang.rust-analyzer"
-    "github.copilot"
-    "github.copilot-chat"
-    "panicbit.cargo"
-    "uniquevision.vscode-plpgsql-lsp"
-    "ckolkman.vscode-postgres"
-    "ms-python.python"
-    "hashicorp.terraform"
-    "eamodio.gitlens"
-    "vue.volar"
-    "ibm.output-colorizer"
-    "fill-labs.dependi"
-    "vadimcn.vscode-lldb"
-    "ms-vscode.test-adapter-converter"
-    "inferrinizzard.prettier-sql-vscode"
-    "usernamehw.errorlens"
-    "hashicorp.hcl"
-    "fredwangwang.vscode-hcl-format"
-    "adrianwilczynski.toggle-hidden"
-    "github.vscode-pull-request-github"
-    "ashinzekene.nestjs"
 
-    # Add more extensions here
   ];
 in {
   imports = [ ./../mutable-files.nix ];
@@ -40,18 +12,12 @@ in {
     username = "martyn";
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
-      awscli2
-      aws-sam-cli
       eza
       fd
       ffmpegthumbnailer
       file
-      gh
-      kubernetes-helm
       htop
-      imagemagick
       jq
-      kubectl
       nixfmt
       poppler
       ripgrep
@@ -59,19 +25,15 @@ in {
     shellAliases = {
       ls = "eza -1lh --no-quotes -I .DS_Store";
       ll = "eza -1lah --no-quotes -I .DS_Store";
-      rstudio = "open -a RStudio";
-      positron = "open -a Positron";
       vc = "code .";
-      dup = "devenv up";
     };
     file = {
       ".config/kitty/kitty.conf" = { source = ./configs/kitty.conf; };
-      ".config/yazi/yazi.toml" = { source = ./configs/yazi.toml; };
       ".config/starship.toml" = { source = ./configs/starship.toml; };
       ".config/aerospace/aerospace.toml" = {
         source = ./configs/aerospace.toml;
       };
-      ".config/zed/settings.json" = { source = ./configs/zed/settings.json; };
+
       "Library/Application Support/Code/User/settings.json" = {
         source = ./configs/vscode-settings.json;
         force = true;
@@ -139,17 +101,17 @@ in {
   };
 
   programs.direnv = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
   };
 
   programs.yazi = {
     # See: https://yazi-rs.github.io/docs/installation#nix
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
   };
 
-  programs.k9s = { enable = true; };
+  programs.k9s = { enable = false; };
 
   programs.zoxide = {
     enable = true;

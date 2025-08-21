@@ -6,21 +6,7 @@
       "EDITOR" = "nvim";
       "VSCODE_PORTABLE" = "~/.vscode";
     };
-    systemPackages = with pkgs; [
-      neovim
-      tree
-
-      # Development tools
-      devenv
-      nixpkgs-fmt
-      nodejs
-
-      # Infrastructure tools
-      # terraform
-      minikube
-      # R tools
-
-    ];
+    systemPackages = with pkgs; [ tree nixpkgs-fmt ];
   };
 
   services = {
@@ -46,12 +32,7 @@
   system.stateVersion = 5;
   system.defaults.dock = {
     show-recents = false;
-    persistent-apps = [
-      "/Applications/Arc.app"
-      "/Applications/kitty.app"
-      "/Applications/Slack.app"
-      "/Applications/Sunsama.app"
-    ];
+    persistent-apps = [ "/Applications/Arc.app" "/Applications/kitty.app" ];
     persistent-others = [ ];
     minimize-to-application = true;
     mineffect = "suck";
@@ -61,7 +42,7 @@
 
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
-  system.defaults.smb.NetBIOSName = "macst-martynv";
+  system.defaults.smb.NetBIOSName = "mbair-martynv";
 
   system.defaults.screensaver.askForPassword = true;
   system.defaults.screensaver.askForPasswordDelay = 300; # 5 minutes
@@ -71,8 +52,8 @@
     };
   };
 
-  networking.hostName = "macst-martynv";
-  networking.localHostName = "macst-martynv";
+  networking.hostName = "mbair-martynv";
+  networking.localHostName = "mbair-martynv";
 
   power.restartAfterPowerFailure = true;
   power.sleep.computer = "never";
@@ -90,34 +71,21 @@
       upgrade = true;
     };
     taps = [
-      "nikitabobko/tap"
+
       "FelixKratz/formulae"
-      "f/mcptools"
-      "withgraphite/tap"
+
     ];
-    brews = [ "borders" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
+    brews = [ "borders" ];
     casks = [
       "1password"
       "aerospace"
       "arc"
-      "beekeeper-studio"
-      "bruno"
       "chatgpt"
-      "figma"
       "font-symbols-only-nerd-font"
-      "gitkraken-cli"
-      "gitkraken"
       "google-chrome"
-      "inkscape"
       "kitty"
-      "logi-options+"
-      "microsoft-teams"
       "nordvpn"
-      "notion"
-      "slack"
       "spotify"
-      "sunsama"
-      "tableplus"
       "whatsapp"
       "zoom"
     ];
