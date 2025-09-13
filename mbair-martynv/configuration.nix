@@ -32,7 +32,12 @@
   system.stateVersion = 5;
   system.defaults.dock = {
     show-recents = false;
-    persistent-apps = [ "/Applications/Arc.app" "/Applications/kitty.app" ];
+    persistent-apps = [
+      "/Applications/Arc.app"
+      "/Applications/kitty.app"
+      "/Applications/Sunsama.app"
+      "/Applications/Notion.app"
+    ];
     persistent-others = [ ];
     minimize-to-application = true;
     mineffect = "suck";
