@@ -14,6 +14,7 @@
       devenv
       nixpkgs-fmt
       nodejs
+      graphviz
 
       # Infrastructure tools
       # terraform
@@ -64,22 +65,18 @@
   system.defaults.smb.NetBIOSName = "macst-martynv";
 
   # HotKeys
-  system.defaults.CustomUserPreferences = {
-    "com.apple.symbolichotkeys" = {
-      AppleSymbolicHotKeys = {
-        "64" = { enabled = false; }; # Spotlight
-        "65" = { enabled = false; }; # Spotlight
-      };
+  system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
+    AppleSymbolicHotKeys = {
+      "64" = { enabled = false; }; # Spotlight
+      "65" = { enabled = false; }; # Spotlight
     };
   };
 
   # Screen saver
   system.defaults.screensaver.askForPassword = true;
   system.defaults.screensaver.askForPasswordDelay = 300; # 5 minutes
-  system.defaults.CustomUserPreferences = {
-    "com.apple.screensaver" = {
-      idleTime = 1200; # 0 disables the screensaver
-    };
+  system.defaults.CustomUserPreferences."com.apple.screensaver" = {
+    idleTime = 1200; # 0 disables the screensaver
   };
 
   networking.hostName = "macst-martynv";
@@ -106,7 +103,7 @@
       "f/mcptools"
       "withgraphite/tap"
     ];
-    brews = [ "borders" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
+    brews = [ "act" "borders" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
     casks = [
       "1password"
       "aerospace"
@@ -115,7 +112,9 @@
       "bruno"
       "chatgpt"
       "claude"
+      "docker-desktop"
       "figma"
+      "freelens"
       "font-symbols-only-nerd-font"
       "gitkraken-cli"
       "gitkraken"
@@ -126,7 +125,6 @@
       "microsoft-teams"
       "nordvpn"
       "notion"
-      "openlens"
       "raycast"
       "slack"
       "spotify"
@@ -142,7 +140,12 @@
     };
   };
 
-  fonts.packages =
-    [ pkgs.ibm-plex pkgs.nerd-fonts.hack pkgs.open-sans pkgs.montserrat ];
+  fonts.packages = [
+    pkgs.ibm-plex
+    pkgs.nerd-fonts.hack
+    pkgs.open-sans
+    pkgs.montserrat
+    pkgs.poppins
+  ];
 
 }
