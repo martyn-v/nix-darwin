@@ -32,7 +32,12 @@
   system.stateVersion = 5;
   system.defaults.dock = {
     show-recents = false;
-    persistent-apps = [ "/Applications/Arc.app" "/Applications/kitty.app" ];
+    persistent-apps = [
+      "/Applications/Arc.app"
+      "/Applications/kitty.app"
+      "/Applications/Sunsama.app"
+      "/Applications/Notion.app"
+    ];
     persistent-others = [ ];
     minimize-to-application = true;
     mineffect = "suck";
@@ -69,10 +74,7 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [
-      "FelixKratz/formulae"
-      "nikitabobko/tap"
-    ];
+    taps = [ "FelixKratz/formulae" "nikitabobko/tap" ];
     brews = [ "borders" ];
     casks = [
       "1password"
@@ -83,7 +85,9 @@
       "google-chrome"
       "kitty"
       "nordvpn"
+      "notion"
       "spotify"
+      "sunsama"
       "visual-studio-code"
       "whatsapp"
       "zoom"
