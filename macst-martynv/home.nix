@@ -77,7 +77,9 @@ in {
         force = true;
         mutable = true;
       };
+
     };
+
     activation.postInstall = ''
       for ext in ${lib.concatStringsSep " " vscodeExtensions}; do
         ${pkgs.vscode}/bin/code --install-extension $ext || true
@@ -128,8 +130,12 @@ in {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
+    dotDir = ".config/zsh";
     profileExtra = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
+    initContent = lib.mkOrder 550 ''
+      fpath=(${config.xdg.configHome}/zsh/completions $fpath)
     '';
   };
 

@@ -1,28 +1,32 @@
 {
-    "[nix]": {
-        "editor.tabSize": 4
-    },
-    "[vue]": {
-        "editor.defaultFormatter": "Vue.volar"
-    },
-    "editor.detectIndentation": false,
-    "editor.fontFamily": "'Zed Plex Mono', 'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 16,
-    "editor.formatOnSave": true,
-    "editor.inlayHints.enabled": "offUnlessPressed",
-    "editor.minimap.enabled": false,
-    "editor.tabSize": 4,
-    "extensions.autoCheckUpdates": false,
-    "gitlens.ai.experimental.model": "openai:gpt-4",
-    "rust-analyzer.check.command": "clippy",
-    "rust-analyzer.interpret.tests": true,
-    "rust-analyzer.testExplorer": true,
-    "terminal.external.osxExec": "kitty.app",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontSize": 14,
-    "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Catppuccin Latte",
-    "workbench.iconTheme": "catppuccin-frappe",
-    "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
-    "workbench.preferredLightColorTheme": "Catppuccin Latte"
+  "[nix]": {
+    "editor.tabSize": 4
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'Zed Plex Mono', 'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 16,
+  "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 4,
+  "extensions.autoCheckUpdates": false,
+  "gitlens.ai.experimental.model": "openai:gpt-4",
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.interpret.tests": true,
+  "rust-analyzer.testExplorer": true,
+  "terminal.external.osxExec": "kitty.app",
+  "terminal.integrated.fontSize": 14,
+  "window.autoDetectColorScheme": true,
+  "workbench.colorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "catppuccin-frappe",
+  "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.inheritEnv": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

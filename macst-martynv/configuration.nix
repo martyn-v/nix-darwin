@@ -63,6 +63,17 @@
   system.defaults.WindowManager.EnableStandardClickToShowDesktop = false;
   system.defaults.smb.NetBIOSName = "macst-martynv";
 
+  # HotKeys
+  system.defaults.CustomUserPreferences = {
+    "com.apple.symbolichotkeys" = {
+      AppleSymbolicHotKeys = {
+        "64" = { enabled = false; }; # Spotlight
+        "65" = { enabled = false; }; # Spotlight
+      };
+    };
+  };
+
+  # Screen saver
   system.defaults.screensaver.askForPassword = true;
   system.defaults.screensaver.askForPasswordDelay = 300; # 5 minutes
   system.defaults.CustomUserPreferences = {
@@ -103,6 +114,7 @@
       "beekeeper-studio"
       "bruno"
       "chatgpt"
+      "claude"
       "figma"
       "font-symbols-only-nerd-font"
       "gitkraken-cli"
@@ -114,6 +126,8 @@
       "microsoft-teams"
       "nordvpn"
       "notion"
+      "openlens"
+      "raycast"
       "slack"
       "spotify"
       "sunsama"
