@@ -103,13 +103,14 @@
       "f/mcptools"
       "withgraphite/tap"
     ];
-    brews = [ "act" "borders" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
+    brews = [ "act" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
     casks = [
       "1password"
       "aerospace"
       "arc"
       "beekeeper-studio"
       "bruno"
+      "bunch"
       "chatgpt"
       "claude"
       "docker-desktop"
@@ -123,6 +124,7 @@
       "kitty"
       "logi-options+"
       "microsoft-teams"
+      "moom"
       "nordvpn"
       "notion"
       "pgadmin4"
