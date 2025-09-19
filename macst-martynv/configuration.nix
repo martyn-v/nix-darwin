@@ -18,7 +18,7 @@
 
       # Infrastructure tools
       # terraform
-      minikube
+      flux
       # R tools
 
     ];
