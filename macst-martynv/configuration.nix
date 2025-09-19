@@ -125,6 +125,7 @@
       "microsoft-teams"
       "nordvpn"
       "notion"
+      "pgadmin4"
       "raycast"
       "slack"
       "spotify"
