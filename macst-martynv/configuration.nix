@@ -18,7 +18,7 @@
 
       # Infrastructure tools
       # terraform
-      flux
+      fluxcd
       # R tools
 
     ];
