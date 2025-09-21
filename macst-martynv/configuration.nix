@@ -120,6 +120,7 @@
       "gitkraken-cli"
       "gitkraken"
       "google-chrome"
+      "hammerspoon"
       "inkscape"
       "kitty"
       "logi-options+"

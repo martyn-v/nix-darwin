@@ -1,0 +1,27 @@
+---
+title: Nuevaflo Dev
+sequence: sequential
+---
+
+@@
+
+{^1} ~1 
+
+// Open VSCode in nuevaflo-server root
+%vscode (nuevaflo-server).app
+
+// Open browser to API docs
+Arc.app
+
+// Open kitty in nuevaflo root
+kitty.app
+- ~/dev/nuevaflo
+
+* tell application "Moom" to arrange windows according to snapshot "NuevafloServer" ~2
+(pause 3)
+{^2} ~2
+
+// Open VSCode in nuevaflo-server root
+%vscode (nuevaflo-webclient).app
+
+Arc.app
