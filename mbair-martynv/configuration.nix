@@ -75,7 +75,7 @@
       upgrade = true;
     };
     taps = [ "FelixKratz/formulae" "nikitabobko/tap" ];
-    brews = [ "borders" ];
+    brews = [ ];
     casks = [
       "1password"
       "aerospace"
@@ -89,6 +89,7 @@
       "spotify"
       "sunsama"
       "visual-studio-code"
+      "warp"
       "whatsapp"
       "zoom"
     ];
