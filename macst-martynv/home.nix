@@ -55,6 +55,7 @@ in {
       nixfmt
       poppler
       ripgrep
+      watch
     ];
     shellAliases = {
       ls = "eza -1lh --no-quotes -I .DS_Store";
