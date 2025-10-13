@@ -95,6 +95,7 @@ in {
     enable = true;
     userName = "martyn-v";
     userEmail = "m@rtyn.io";
+    extraConfig = { push = { autoSetupRemote = true; }; };
   };
 
   programs.vscode = {

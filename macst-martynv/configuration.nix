@@ -131,6 +131,7 @@
       "pgadmin4"
       "raycast"
       "slack"
+      "smartgit"
       "spotify"
       "sunsama"
       "tableplus"
