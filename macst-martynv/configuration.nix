@@ -108,6 +108,7 @@
       "1password"
       "aerospace"
       "arc"
+      "babeledit"
       "beekeeper-studio"
       "bruno"
       "bunch"
