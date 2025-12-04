@@ -97,16 +97,12 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [
-      "nikitabobko/tap"
-      "FelixKratz/formulae"
-      "f/mcptools"
-      "withgraphite/tap"
-    ];
-    brews = [ "act" "sevenzip" "mcp" "withgraphite/tap/graphite" ];
+    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
+    brews = [ "act" "sevenzip" "mcp" ];
     casks = [
       "1password"
-      "aerospace"
+      #   "aerospace"
+      "affinity"
       "arc"
       "babeledit"
       "beekeeper-studio"
