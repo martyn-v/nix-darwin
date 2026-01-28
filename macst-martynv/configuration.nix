@@ -130,12 +130,12 @@
       "notion"
       "pgadmin4"
       "raycast"
+      "screaming-frog-seo-spider"
       "slack"
       "smartgit"
       "spotify"
       "sunsama"
       "tableplus"
-
       "whatsapp"
       "wispr-flow"
       "zoom"
