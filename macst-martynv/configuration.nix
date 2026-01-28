@@ -98,9 +98,10 @@
       upgrade = true;
     };
     taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
-    brews = [ "act" "sevenzip" "mcp" ];
+    brews = [ "act" "sevenzip" "mcp" "tmux" ];
     casks = [
       "1password"
+      "1password-cli"
       #   "aerospace"
       "affinity"
       "arc"
@@ -110,6 +111,8 @@
       "bunch"
       "chatgpt"
       "claude"
+      "claude-code"
+      "cursor"
       "docker-desktop"
       "figma"
       "freelens"
@@ -132,7 +135,9 @@
       "spotify"
       "sunsama"
       "tableplus"
+
       "whatsapp"
+      "wispr-flow"
       "zoom"
     ];
     masApps = {

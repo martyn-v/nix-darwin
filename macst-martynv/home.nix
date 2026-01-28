@@ -64,6 +64,8 @@ in {
       positron = "open -a Positron";
       vc = "code .";
       dup = "devenv up";
+      claude = ''
+        GITHUB_TOKEN=$(op read "op://Private/Github MacStudio PAT/credential") claude'';
     };
     file = {
       ".config/kitty/kitty.conf" = { source = ./configs/kitty.conf; };
