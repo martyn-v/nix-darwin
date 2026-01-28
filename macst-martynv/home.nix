@@ -65,9 +65,10 @@ in {
       vc = "code .";
       dup = "devenv up";
       claude = ''
-        GITHUB_TOKEN=$(op read "op://Private/Github MacStudio PAT/credential") claude'';
+        GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github MacStudio PAT/credential") command claude'';
     };
     file = {
+      ".tmux.conf" = { source = ./configs/.tmux.conf; };
       ".config/kitty/kitty.conf" = { source = ./configs/kitty.conf; };
       ".config/yazi/yazi.toml" = { source = ./configs/yazi.toml; };
       ".config/starship.toml" = { source = ./configs/starship.toml; };
