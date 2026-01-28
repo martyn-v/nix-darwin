@@ -122,7 +122,7 @@
       "google-chrome"
       "hammerspoon"
       "inkscape"
-      "jump-desktop"
+      "jump-desktop-connect"
       "kitty"
       "logi-options+"
       "microsoft-teams"
