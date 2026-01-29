@@ -83,7 +83,6 @@
       "chatgpt"
       "font-symbols-only-nerd-font"
       "google-chrome"
-      "jump-desktop"
       "kitty"
       "nordvpn"
       "notion"
