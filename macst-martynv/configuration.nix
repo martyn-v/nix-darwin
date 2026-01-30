@@ -111,8 +111,6 @@
     casks = [
       "1password"
       "1password-cli"
-      #   "aerospace"
-      "affinity"
       "arc"
       "babeledit"
       "beekeeper-studio"
@@ -121,7 +119,6 @@
       "chatgpt"
       "claude"
       "claude-code"
-      "cursor"
       "docker-desktop"
       "figma"
       "freelens"
@@ -133,25 +130,19 @@
       "inkscape"
       "kitty"
       "logi-options+"
-      "microsoft-teams"
       "moom"
       "nordvpn"
       "notion"
-      "pgadmin4"
       "raycast"
       "slack"
-      "smartgit"
       "spotify"
       "sunsama"
       "tableplus"
       "whatsapp"
       "wispr-flow"
-      "zoom"
     ];
     masApps = {
-      "Canary" = 1236045954;
-      "Flighty" = 1358823008;
-      "Perplexity" = 6714467650;
+
     };
   };
 
