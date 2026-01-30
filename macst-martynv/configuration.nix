@@ -106,7 +106,7 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
+    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" "mkcert" ];
     brews = [ "act" "sevenzip" "mcp" "tmux" ];
     casks = [
       "1password"
@@ -134,6 +134,7 @@
       "nordvpn"
       "notion"
       "raycast"
+      "screaming-frog-seo-spider"
       "slack"
       "spotify"
       "sunsama"
