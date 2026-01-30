@@ -106,8 +106,8 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" "mkcert" ];
-    brews = [ "act" "sevenzip" "mcp" "tmux" ];
+    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
+    brews = [ "act" "sevenzip" "mcp" "tmux" "mkcert" ];
     casks = [
       "1password"
       "1password-cli"
