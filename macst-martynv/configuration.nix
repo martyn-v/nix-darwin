@@ -21,8 +21,17 @@
       fluxcd
       # R tools
 
+      kitty.terminfo
+      ncurses
+
     ];
   };
+
+  environment.variables.TERMINFO_DIRS = [
+    "${pkgs.kitty.terminfo}/share/terminfo"
+    "${pkgs.ncurses}/share/terminfo"
+    "/usr/share/terminfo"
+  ];
 
   services = {
     # Auto upgrade nix package and the daemon service
@@ -122,7 +131,6 @@
       "google-chrome"
       "hammerspoon"
       "inkscape"
-      "jump-desktop-connect"
       "kitty"
       "logi-options+"
       "microsoft-teams"
@@ -131,7 +139,6 @@
       "notion"
       "pgadmin4"
       "raycast"
-      "screaming-frog-seo-spider"
       "slack"
       "smartgit"
       "spotify"
