@@ -106,8 +106,21 @@
       cleanup = "zap";
       upgrade = true;
     };
-    taps = [ "nikitabobko/tap" "FelixKratz/formulae" "f/mcptools" ];
-    brews = [ "act" "sevenzip" "mcp" "tmux" "mkcert" ];
+    taps = [
+      "nikitabobko/tap"
+      "FelixKratz/formulae"
+      "f/mcptools"
+      "deepsourcelabs/cli"
+    ];
+    brews = [
+      "act"
+      "sevenzip"
+      "mcp"
+      "tmux"
+      "mkcert"
+      "uv"
+      "deepsourcelabs/cli/deepsource"
+    ];
     casks = [
       "1password"
       "1password-cli"
@@ -119,6 +132,7 @@
       "chatgpt"
       "claude"
       "claude-code"
+      "codexbar"
       "docker-desktop"
       "figma"
       "freelens"
