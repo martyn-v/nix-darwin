@@ -120,6 +120,7 @@
       "mkcert"
       "uv"
       "deepsourcelabs/cli/deepsource"
+      "claude-squad"
     ];
     casks = [
       "1password"
