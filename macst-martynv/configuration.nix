@@ -111,6 +111,7 @@
       "FelixKratz/formulae"
       "f/mcptools"
       "deepsourcelabs/cli"
+      "raine/workmux"
     ];
     brews = [
       "act"
@@ -120,7 +121,7 @@
       "mkcert"
       "uv"
       "deepsourcelabs/cli/deepsource"
-      "claude-squad"
+      "raine/workmux/workmux"
     ];
     casks = [
       "1password"
