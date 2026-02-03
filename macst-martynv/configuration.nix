@@ -125,6 +125,7 @@
     casks = [
       "1password"
       "1password-cli"
+      "ableton-live-suite@11"
       "arc"
       "babeledit"
       "beekeeper-studio"
