@@ -135,7 +135,6 @@
       "chatgpt"
       "claude"
       "claude-code"
-      "codexbar"
       "docker-desktop"
       "figma"
       "freelens"
