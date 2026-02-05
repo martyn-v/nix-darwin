@@ -144,6 +144,7 @@
       "google-chrome"
       "hammerspoon"
       "inkscape"
+      "iterm2"
       "kitty"
       "logi-options+"
       "moom"
