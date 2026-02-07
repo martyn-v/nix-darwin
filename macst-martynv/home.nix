@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   vscodeExtensions = [
     "tamasfe.even-better-toml"
@@ -31,7 +36,8 @@ let
 
     # Add more extensions here
   ];
-in {
+in
+{
   imports = [ ./../mutable-files.nix ];
   home = {
     stateVersion = "24.05";
@@ -56,6 +62,7 @@ in {
       poppler
       ripgrep
       watch
+      process-compose
     ];
     shellAliases = {
       ls = "eza -1lh --no-quotes -I .DS_Store";
@@ -63,19 +70,28 @@ in {
       rstudio = "open -a RStudio";
       positron = "open -a Positron";
       vc = "code .";
-      dup = "devenv up";
-      claude = ''
-        GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github MacStudio PAT/credential") command claude'';
+      dup = "devenv up --override-input nixpkgs path:$HOME/dev/nuevaflo/.devenv-nixpkgs-fix";
+      claude = ''GITHUB_PERSONAL_ACCESS_TOKEN=$(op read "op://Private/Github MacStudio PAT/credential") command claude'';
     };
     file = {
-      ".tmux.conf" = { source = ./configs/.tmux.conf; };
-      ".config/kitty/kitty.conf" = { source = ./configs/kitty.conf; };
-      ".config/yazi/yazi.toml" = { source = ./configs/yazi.toml; };
-      ".config/starship.toml" = { source = ./configs/starship.toml; };
+      ".tmux.conf" = {
+        source = ./configs/.tmux.conf;
+      };
+      ".config/kitty/kitty.conf" = {
+        source = ./configs/kitty.conf;
+      };
+      ".config/yazi/yazi.toml" = {
+        source = ./configs/yazi.toml;
+      };
+      ".config/starship.toml" = {
+        source = ./configs/starship.toml;
+      };
       ".config/aerospace/aerospace.toml" = {
         source = ./configs/aerospace.toml;
       };
-      ".config/zed/settings.json" = { source = ./configs/zed/settings.json; };
+      ".config/zed/settings.json" = {
+        source = ./configs/zed/settings.json;
+      };
       "Library/Application Support/Code/User/settings.json" = {
         source = ./configs/vscode-settings.json;
         force = true;
@@ -96,9 +112,14 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "martyn-v";
-    userEmail = "m@rtyn.io";
-    extraConfig = { push = { autoSetupRemote = true; }; };
+    settings = {
+      user.name = "martyn-v";
+      user.email = "m@rtyn.io";
+      push.autoSetupRemote = true;
+      credential."https://github.com" = {
+        helper = "!${pkgs.gh}/bin/gh auth git-credential";
+      };
+    };
   };
 
   programs.vscode = {
@@ -135,7 +156,7 @@ in {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
     profileExtra = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
@@ -160,7 +181,9 @@ in {
     enableZshIntegration = true;
   };
 
-  programs.k9s = { enable = true; };
+  programs.k9s = {
+    enable = true;
+  };
 
   programs.zoxide = {
     enable = true;
@@ -168,6 +191,11 @@ in {
   };
 
   programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.mise = {
     enable = true;
     enableZshIntegration = true;
   };

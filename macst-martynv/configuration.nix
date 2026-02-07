@@ -1,4 +1,5 @@
-{ pkgs, self, ... }: {
+{ pkgs, self, ... }:
+{
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment = {
@@ -35,14 +36,19 @@
 
   services = {
     # Auto upgrade nix package and the daemon service
-    sketchybar = { enable = false; };
+    sketchybar = {
+      enable = false;
+    };
   };
   # nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
   # Allow trusted users to run nix commands without sudo.
-  nix.settings.trusted-users = [ "root" "martyn" ];
+  nix.settings.trusted-users = [
+    "root"
+    "martyn"
+  ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
@@ -76,8 +82,12 @@
   # HotKeys
   system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
     AppleSymbolicHotKeys = {
-      "64" = { enabled = false; }; # Spotlight
-      "65" = { enabled = false; }; # Spotlight
+      "64" = {
+        enabled = false;
+      }; # Spotlight
+      "65" = {
+        enabled = false;
+      }; # Spotlight
     };
   };
 
@@ -97,7 +107,9 @@
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
-  nixpkgs.config = { allowUnfree = true; };
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   # Homebrew
   homebrew = {
@@ -110,7 +122,6 @@
       "nikitabobko/tap"
       "FelixKratz/formulae"
       "f/mcptools"
-      "deepsourcelabs/cli"
       "raine/workmux"
     ];
     brews = [
@@ -120,8 +131,8 @@
       "tmux"
       "mkcert"
       "uv"
-      "deepsourcelabs/cli/deepsource"
       "raine/workmux/workmux"
+      "postgresql@17"
     ];
     casks = [
       "1password"
