@@ -81,6 +81,7 @@
       "aerospace"
       "arc"
       "chatgpt"
+      "claude"
       "font-symbols-only-nerd-font"
       "google-chrome"
       "kitty"
